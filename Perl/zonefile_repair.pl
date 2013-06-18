@@ -70,7 +70,7 @@ while ( <> ) {	#process file/matching files
 
 	#correct trailing period issues on these record types
 	if ( $line =~ m/\s+IN\s+CNAME\s+|\s+IN\s+MX\s+|\s+IN\s+SRV\s+/ ) {	
-		$line =~ s/(\s*(?:;.*))$/.$1/ unless $line =~ /\@$/;
+		$line =~ s/(\s*(?:;.*)?)$/\.$1/ unless $line =~ /\@$/;
 	}
 
 	#Remove extraneous @ from these record types
