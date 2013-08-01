@@ -11,8 +11,8 @@
 #Details:
 #    	FILES		Accepts a single file of file pattern. No validation is done for valid zone file
 #	-h, --help	Show help message and exit
-#	-b, --backup	Create a backup of the zonefile before processing. Defaults directory is /BACKUP
-#	-d, --dir	Defines the folder where backups should be placed instead of using /BACKUP
+#	-b, --backup	Create a backup of the zonefile before processing. Default directory is /BACKUP
+#	-d, --dir	Defines the folder where backups should be placed instead of using the default /BACKUP
 #
 import os, re, sys, shutil, argparse
 
@@ -27,7 +27,7 @@ def GetOptions():
 	parser = argparse.ArgumentParser(description='Process some integers.')
 	opt_file = parser.add_argument('fileIn', help='Accepts a single file of file pattern. No validation is done for valid zone file')
 	opt_backup = parser.add_argument('-b','--backup', dest='backup', action='store_true', help='Create a backup of the zone file before processing. Defaults directory is /BACKUP')
-	opt_dir = parser.add_argument('-d','--dir', dest='directory', help='Defines the folder where backups should be placed instead of using /BACKUP')
+	opt_dir = parser.add_argument('-d','--dir', dest='directory', help='Defines the folder where backups should be placed instead of using the defualt /BACKUP')
 	args = parser.parse_args()
 	return args.fileIn, args.directory, args.backup
 
