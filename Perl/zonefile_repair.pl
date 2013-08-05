@@ -63,14 +63,14 @@ else {
 }
 
 while ( <> ) {	#process file/matching files
-
+	
 	my $line = $_;
 	chomp $line;
 	$line =~ s/\r$//;        #Remove possible windows style newlines
 
 	#correct trailing period issues on these record types
-	if ( $line =~ m/\s+IN\s+CNAME\s+|\s+IN\s+MX\s+|\s+IN\s+SRV\s+/ ) {	
-		$line =~ s/(\s*(?:;.*)?)$/\.$1/ unless $line =~ /\@$/;
+	if ( $line =~ m/\s+IN\s+CNAME\s+|\s+IN\s+MX\s+|\s+IN\s+SRV\s+/ ) {
+		$line =~ s/\.?(\s*(?:;.*)?)$/\.$1/ unless $line =~ /\@$/;
 	}
 
 	#Remove extraneous @ from these record types
